@@ -1,0 +1,38 @@
+## general
+**/log.log
+__pycache__
+
+# datenextrahierung 
+datenextrahierung/config.py
+
+## pull request buddy
+pull-request-buddy/config.py
+pull-request-buddy/daten/
+data/
+data*
+
+## Core latex/pdflatex auxiliary files:
+*.aux 
+*.bit 
+*.blg 
+*.bbl 
+*.bcf
+*.fls
+*.fdb_latexmk
+*.lof 
+*.log 
+*.lot 
+*.glo 
+*.glx 
+*.gxg 
+*.gxs 
+*.idx 
+*.ilg 
+*.ind 
+*.out 
+*.run.xml
+*.url 
+*.svn
+*.synctex.gz
+*.tdo 
+*.toc

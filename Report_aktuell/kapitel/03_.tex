@@ -1,0 +1,41 @@
+\chapter{Ein eigenes Beispiel} 
+Um den Algorithmus besser verstehen zu können betrachten wir ihn an einem selbst gewählten Beispiel. Zur besseren Übersicht ist der Ablauf auch in Tabelle \ref{table:example} dargestellt. \\
+Wir betrachten eine Konfiguration $(9, 8, 6)$. Der erste Schritt ist das Sortieren und erhalten $(6, 8, 9)$. \\
+Als nächstes berechnen wir die Hilfswerte: $r=b/a=8/6_{10}$, $p=\lfloor r \rfloor = 1_{10}$ und $q=\lceil r \rceil = 2_{10}$. Daraus ergeben sich $p = 1_{2}$ und $q = 10_{2}$. \\
+Als nächstes prüfen wir die Bedingung $b-pa \leq a/2$ und entscheiden aufgrund dessen, ob wir den Fall 1 oder Fall 2 betrachten. In diesem Fall ist die Bedingung erfüllt, also betrachten wir Fall 1. \\
+In Fall 1 führen wir $k+1$ Schritte aus. Da $p= 1_{2}$ und $p_k...p_0$ führen wir also nur einen Schritt, Schritt 0, aus. In diesem Schritt verdoppeln wir was anfänglich a war, also $a'=2*a=2*6=12$. Dazu müssen wir diese 6 Liter aus einem der beiden anderen Krüge holen und da $p_0=1$ ist, holen wir laut der Regeln in Fall 1 die 6 Liter aus Krug b. Die neue Konfiguration ist also $(12, 2, 9)$. Damit haben wir die erste Runde abgeschlossen. Wir prüfen nun ob einer der drei Krüge nun leer ist. Da dies nicht der Fall ist beginnen wir mit Runde zwei.\\
+
+In der zweiten Runde beginnen wir wieder mit Sortieren und erhalten $(2, 9, 12)$. Nun berechnen wir wieder die Hilfswerte: $r=b/a=9/2_{10}$, $p=\lfloor r \rfloor = 4_{10}$ und $q=\lceil r \rceil = 5_{10}$. Daraus ergeben sich $p = 100_{2}$ und $q = 101_{2}$. \\
+Die Bedingung $b-pa \leq a/2$ ist dieses mal wieder erfüllt und wir betrachten wieder Fall 1. Dieses Mal haben wir jedoch $p=100_{2}$ und führen also drei Schritte aus. In Schritt 0 verdoppeln wir wieder a ($a'=2*a=2*2=4$) und holen die 2 Liter aus Krug c, da $p_0=0$. Wir erhalten $(4, 9, 10)$. In Schritt 1 verdoppeln wir wieder a ($a''=2*a'=2*4=8$) und holen die 4 Liter aus Krug c', da $p_1=0$. Wir erhalten $(8, 9, 6)$. In Schritt 2 verdoppeln wir wieder a ($a'''=2*a''=2*8=16$) und holen die 8 Liter aus Krug b'', da $p_2=1$. Wir erhalten $(16, 1, 6)$. Damit haben wir die zweite Runde abgeschlossen. Auch dieses Mal prüfen wir ob wir unser Ziel erreicht haben, aber noch keiner der drei Krüge ist leer, also brauchen wir noch eine weitere Runde.\\
+
+In der dritten Runde erhalten wir nach dem Sortieren $(1, 6, 16)$. Die Hilfswerte sind $r=b/a=6/1_{10}$, $p=\lfloor r \rfloor = 6_{10}$ und $q=\lceil r \rceil = 6_{10}$. Daraus ergeben sich $p = 110_{2}$ und $q = 110_{2}$. \\
+Dieses Mal ist die Bedingung $b-pa \leq a/2$ nicht erfüllt, also betrachten wir Fall 2. In Fall 2 führen wir zunächst $\ell$ Schritte aus und fügen am Schluss noch einen Schritt $\ell +1$ hinzu. \\
+Auch hier verdoppeln wir a, sodass $a'=2*a=2$. Da wir uns dieses Mal in Fall 2 befinden, betrachten wir um zu entscheiden aus welchem Krug wir den Liter schütten nun $q$ und nicht mehr $p$. Da $q_0=0$ ist, holen wir den Liter aus Krug c und erhalten $(2, 6, 15)$. In Schritt 1 verdoppeln wir wieder a, sodass $a''=2*a'=4$. Da $q_1=1$ holen wir den Liter aus Krug b und erhalten $(4, 4, 15)$. Anschließend führen wir noch einen ($\ell+1$)-ten Schritt aus. Wir rechnen $a = 2^\ell a- (b-qa+2^\ell a) = (-b+qa)$, also $a'''=(-6+6*1)=0$ und erhalten $(8,0,15)$. %Todo das noch mal nach schauen was da jetzt genau war??
+Damit sind wir fertig mit unserer dritten Runde. Da nun einer der Krüge leer ist, haben wir unser Ziel erreicht.\\
+
+\begin{center}
+	\begin{tabular}{ll}     
+		ROUND 1: (9, 8, 6)                                                       \\
+		\noindent\hspace*{12mm} 	SORTING:               (6, 8, 9)             \\ 
+		\noindent\hspace*{12mm} 	HELPER: $p:1_{10}$ ($1_{2}$), $q:2_{10}$ ($10_{2}$)     \\
+		\noindent\hspace*{12mm} 	CASE 1 (k=1):    				             \\
+		\noindent\hspace*{22mm}			Step 0: $p_i = 1 \rightarrow (12, 2, 9)$    \\
+		ROUND 2: (12, 2, 9)                                                      \\      
+		\noindent\hspace*{12mm} 	SORTING... (2, 9, 12)                        \\
+		\noindent\hspace*{12mm} 	HELPER: $p:4_{10}$ ($100_{2}$), $q:5_{10}$ ($101_{2}$   \\
+		\noindent\hspace*{12mm} 	CASE 1 (k=3):                                \\
+		\noindent\hspace*{22mm}			Step 0: $p_i = 0 \rightarrow (4, 9, 10)$    \\
+		\noindent\hspace*{22mm}			Step 1: $p_i = 0 \rightarrow (8, 9, 6)$     \\
+		\noindent\hspace*{22mm}			Step 2: $p_i = 1 \rightarrow (16, 1, 6)$    \\
+		ROUND 3: (16, 1, 6)                                                      \\
+		\noindent\hspace*{12mm} 	SORTING... (1, 6, 16)                        \\
+		\noindent\hspace*{12mm} 	HELPER: $p:6_{10}$ ($110_{2}$), $q:6_{10}$ ($110_{2}$)  \\
+		\noindent\hspace*{12mm} 	CASE 1 (k=3):                                \\
+		\noindent\hspace*{22mm}			Step 0: $p_i = 0 \rightarrow (2, 6, 15)$    \\
+		\noindent\hspace*{22mm}			Step 1: $p_i = 1 \rightarrow (4, 4, 15)$    \\
+		\noindent\hspace*{22mm}			Step 2: $p_i = 1 \rightarrow (8, 0, 15)$    \\
+		DONE in 3 rounds and 7 steps!                                            \\
+	\end{tabular} \\
+	\captionof{table}{Der Algorithmus benötigt 3 Runden und 7 Schritte um die Konfiguration $(9, 8, 6)$ in die Konfiguration $(8, 0, 15)$ zu überführen.}
+	\label{table:example}
+\end{center}

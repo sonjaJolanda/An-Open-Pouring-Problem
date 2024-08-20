@@ -1,0 +1,10 @@
+\section{Der Ablauf innerhalb einer Runde} \label{runden} 
+Eine Runde startet mit einer Anfangskonfiguration $(a, b, c)$ mit $0 < a\leq b \le c$ und endet mit einer Konfiguration $(a', b', c')$ mit $a' \leq a/2$. Wenn eine der drei Zahlen nach einer Runde 0 ist, ist das Ziel erreicht. \\
+Eine Runde ist immer folgendermaßen aufgebaut:
+
+\begin{itemize}
+    \item Sortieren der Krüge, sodass $a \leq b \leq c$
+    \item die Hilfswerte $r$, $p$, $q$ berechnen
+    \item Fall 1 oder Fall 2 ausführen je nachdem ob $b-pa \leq a/2$ gilt.
+    \item Prüfen ob wir unser Ziel erreicht haben
+\end{itemize}  

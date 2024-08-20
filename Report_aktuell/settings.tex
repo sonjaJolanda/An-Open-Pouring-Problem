@@ -1,0 +1,40 @@
+\usepackage[ngerman]{babel}
+\usepackage{csquotes} % it necessary for using babel
+\usepackage{float} % for positioning images
+\usepackage{graphicx} % inclusion of graphics & pdfs
+% \usepackage[ansinew]{inputenc} % um Umlaute direkt einbinden zu können
+\usepackage{enumitem}
+\usepackage{hyperref} % so links to other chapters etc. in doc
+\usepackage{xcolor} % more colors etc.
+
+\usepackage{amsmath} % for math
+\usepackage{mathtools} % for math
+
+\usepackage{listings} % for code
+
+\usepackage[a4paper, left=3cm, right=3cm, top=2cm]{geometry} % Randbreite 3cm links und rechts
+\usepackage[onehalfspacing]{setspace} % Zeilenabstand 1,5x
+%\usepackage{setspace}
+%\spacing{1,2381}
+
+\usepackage[
+    style=authoryear,
+    doi=false,
+    isbn=false,
+    url=false,
+    eprint=false,
+    backend=biber]{biblatex} %citation
+
+\DeclareFieldFormat{postnote}{\mknormrange{#1}}
+\DeclareFieldFormat{volcitepages}{\mknormrange{#1}}
+\DeclareFieldFormat{multipostnote}{\mknormrange{#1}}
+
+\setcounter{tocdepth}{3}
+\setcounter{secnumdepth}{3}
+
+\counterwithout{figure}{chapter} % figure numbering
+
+\usepackage{scrhack}
+
+%\setlength{\marginparwidth}{2cm} % added because of todo notes
+%\usepackage[textsize=scriptsize, color=blue!40!white, colorinlistoftodos]{todonotes}

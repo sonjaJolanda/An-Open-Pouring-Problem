@@ -55,3 +55,8 @@ with open("output.txt", "w") as file:
     apply(13, 885, 101, 295, 489, file)
     # N(14) and n=1425
     apply(14, 1425, 206, 475, 744, file)
+
+
+
+    
+    apply(7, 23, 6, 8, 9, file)

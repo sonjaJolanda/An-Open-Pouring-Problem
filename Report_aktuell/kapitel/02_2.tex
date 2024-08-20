@@ -1,0 +1,8 @@
+\section{Berechnung der Hilfswerte r, p und q} \label{helper}
+Die Hilfswerte werden folgendermaßen berechnet:
+    $r \coloneq b/a$, 
+    $p \coloneq \rfloor r \rfloor $ und
+    $q \coloneq \lceil r \rceil $.
+Dabei können wir etwas festellen. Es gilt: $0 \leq b-pa < a $ und $ 0 \leq qa - b < a $. 
+Das impliziert dass $min(b-pa, qa-b) \leq a/2$, da $(b-pa)+(qa-b)=(q-p)a \leq a$. 
+Außerdem betrachten wir die kleinsten binären Repräsentationen von $p$ und $q$: $p_k...p_0$ und $q_\ell...q_0$. Diese werden im Ablauf von Fall 1 und Fall 2 relevant.

@@ -1,0 +1,26 @@
+\documentclass[a4paper, 11pt]{scrreprt}
+\input{settings}
+
+\addbibresource{quellen/an_open_pouring_problem.bib}
+\begin{document}
+
+\pagenumbering{roman}
+\input{seiten/cover}
+\input{seiten/abstrakt}
+\tableofcontents
+%\addcontentsline{toc}{chapter}{Abbildungsverzeichnis}
+%\listoffigures
+\newpage
+\pagenumbering{arabic}
+\input{kapitel/01_}\let\clearpage\relax 
+\input{kapitel/02_}\let\clearpage\relax 
+\input{kapitel/03_}\let\clearpage\relax 
+\input{kapitel/04_}\let\clearpage\relax 
+\input{kapitel/05_}\let\clearpage\relax 
+\input{kapitel/06_}\let\clearpage\relax 
+\input{kapitel/07_}\let\clearpage\relax 
+
+\chapter{Literaturverzeichnis}
+\addcontentsline{toc}{chapter}{Literaturverzeichnis}
+\printbibliography[heading=none] %ToDo das geht irgendwie noch nicht?? ging aber davor??
+\end{document}

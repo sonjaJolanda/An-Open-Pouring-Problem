@@ -1,0 +1,15 @@
+\section{Fall 2} \label{case-2}
+% TODO: die ander Bedingung die dann auch erfüllt ist???
+Wird die Bedingung $b-pa \leq a/2$ nicht erfüllt, dann führen wie Fall 2 aus. 
+In Fall 2 führen wir $\ell$ Schritte für $i=0, ..., \ell-1$ aus, die immer das verdoppeln werden was anfänglich $a$ war. Dazu muss wie in Fall 1 erst $a$, dann $2a$ und allgemein $2^ia$ von einer der anderen Nummern abgezogen werden. 
+Anders als in Fall 1 jedoch ziehen wir den benötigten Betrag 
+\begin{itemize}
+    \item von der zweiten Nummer ab (anfänglich $b$), wenn $q_i = 1$ und
+    \item von der dritten Nummer ab (anfänglich $c$), wenn $q_i = 0$.
+\end{itemize}
+
+Nach der Ausführung dieser $\ell$ Schritte, ist die erste Nummer $2^\ell a$, die zweite $b- \sum_{i=0}^{\ell-1} q_i2^ia = b-(q-2^\ell)a$ und die dritte Nummer $c- \sum_{i=0}^{\ell-1} (1-q^i)2^ia$. \\
+
+Anschließend führen wir noch einen $(\ell +1)$-ten Schritt aus. Dieser macht aus $a = 2^\ell a- (b-qa+2^\ell a) = (-b+qa)$. \\
+
+Die Runde endet und die erste Numer ist nun genau $qa-b < q/2$.

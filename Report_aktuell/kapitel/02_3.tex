@@ -1,0 +1,10 @@
+\section{Fall 1} \label{case-1}
+Aus den Hilfswerten prüfen wir die Bedingung $b-pa \leq a/2$. Wenn sie eintritt, dann führen wie Fall 1 aus, wenn nicht, dann Fall 2. 
+In Fall 1 führen wir $k+1$ Schritte für $i=0, ..., k$ aus, die immer das verdoppeln werden was anfänglich $a$ war. Dazu muss erst $a$, dann $2a$ und allgemein $2^ia$ von einer der anderen Nummern abgezogen werden. 
+Wir ziehen den benötigten Betrag 
+\begin{itemize}
+    \item von der zweiten Nummer ab (anfänglich $b$), wenn $p_i = 1$ und
+    \item von der dritten Nummer ab (anfänglich $c$), wenn $p_i = 0$.
+\end{itemize}
+
+Nach der Ausführung dieser $k+1$ Schritte, sind die zweite und die dritte Nummer $b- \sum_{i=0}^{k} p_i2^ia = b-pa \leq a/2$ bzw. $c- \sum_{i=0}^{k} (1-p_i)2^ia$.
